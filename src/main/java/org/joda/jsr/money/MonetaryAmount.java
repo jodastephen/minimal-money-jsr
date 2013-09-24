@@ -60,8 +60,11 @@ public interface MonetaryAmount {
      * <p>
      * For example, the amount of '12 dollars and 25 cents' would return
      * 12 from this method, as there are 12 whole US dollars in the amount.
+     * <p>
+     * The sign of the whole amount must be the same as the sign of the
+     * fraction numerator.
      * 
-     * @return the currency, not null
+     * @return the whole part of the amount, not null
      */
     long getAmountWhole();
 
@@ -74,8 +77,11 @@ public interface MonetaryAmount {
      * <p>
      * For example, the amount of '12 dollars and 25 cents' would typically
      * return 25 from this method and 100 from the denominator method.
+     * <p>
+     * The sign of the numerator must be the same as the sign of the
+     * whole amount part.
      * 
-     * @return the currency, not null
+     * @return the numerator of the fraction part of the amount, not null
      */
     long getAmountFractionNumerator();
 
@@ -89,7 +95,7 @@ public interface MonetaryAmount {
      * For example, the amount of '12 dollars and 25 cents' would typically
      * return 100 from this method and 25 from the numerator method.
      * 
-     * @return the currency, not null
+     * @return the denominator of the fraction part of the amount, not null
      */
     long getAmountFractionDenominator();
 
